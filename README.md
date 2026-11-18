@@ -91,12 +91,10 @@ Nie mogłem uruchomić WordPressa w moim środowisku (brak dostępu do wordpress
 
 1. Czy motyw `mojafirma` aktywuje się bez błędów i czy strona główna używa `front-page.html`.
 2. Czy wzorce widać w Wstawiaczu (Wzorce) i czy wariant „Ciemny” jest w Stylach.
-3. W `mf-child`: czy strona „O nas” używa `page-o-nas.php` (dodaj widoczną różnicę, np. lewy pasek), czy notka pojawia się pod wpisem i czy style „Z cieniem” i „Karta” są w panelu Style bloku.
+3. W `mf-child`: czy strona „O nas” używa `page-o-nas.php`, czy notka pojawia się pod wpisem i czy style „Z cieniem” i „Karta” są w panelu Style bloku.
 4. Zrób **3–5 zrzutów ekranu** do oddania: strona główna, szablon/strona „O nas”, styl bloku w edytorze, widok mobilny. Zapisz w katalogu `screenshots/`.
 5. Opcjonalnie eksport ZIP przez wtyczkę Create Block Theme (zadanie L4 G3) i test w Playground.
 
-## 7. Użycie AI
+## 7. Autorstwo
 
-- **Narzędzie:** Claude (Anthropic).
-- **Do czego:** szkielet motywu, `theme.json`, szablony, wzorce, motyw potomny z hookami, ilustracja SVG, README.
-- Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.
+Projekt przygotowany z pomocą Claude (Anthropic): szkic kodu, treści, ilustracja i dokumentacja. Dane firmy są fikcyjne. Na stronie (stopka i polityka prywatności) jest informacja, że część treści powstała z udziałem AI.
