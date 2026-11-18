@@ -95,6 +95,9 @@ Nie mogłem uruchomić WordPressa w moim środowisku (brak dostępu do wordpress
 4. Zrób **3–5 zrzutów ekranu** do oddania: strona główna, szablon/strona „O nas”, styl bloku w edytorze, widok mobilny. Zapisz w katalogu `screenshots/`.
 5. Opcjonalnie eksport ZIP przez wtyczkę Create Block Theme (zadanie L4 G3) i test w Playground.
 
-## 7. Autorstwo
+## 7. Użycie AI
 
-Projekt przygotowany z pomocą Claude (Anthropic): szkic kodu, treści, ilustracja i dokumentacja. Dane firmy są fikcyjne. Na stronie (stopka i polityka prywatności) jest informacja, że część treści powstała z udziałem AI.
+- **Narzędzie:** Claude (Anthropic).
+- **Co wykonało AI:** na moje polecenia przygotowało: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
+- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża z MP1) i zleciłem pracę na podstawie kart L4 i L5.
+- Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.
