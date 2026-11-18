@@ -46,7 +46,7 @@ Aby to sprawdzić w edytorze witryny: Wygląd → Edytor → Szablony, albo na s
 - `parts/header.html`: nazwa witryny i blok Nawigacja. Menu (wpis `wp_navigation` z jawnymi linkami i podmenu Oferta) tworzy skrypt `tools/seed.php` z MP1. Blok „Lista stron” został zastąpiony, bo generował listę `<ul>` zagnieżdżoną w `<ul>` (błąd dostępności z audytu axe).
 - `parts/footer.html` wstawia wzorzec `mojafirma/stopka-dane` (dane kontaktowe, link do polityki prywatności, informacja o AI). Dane są we wzorcu PHP, bo tylko PHP pozwala użyć `home_url()` i `esc_url()`, a linki „od korzenia” psują się w Playground.
 - Wzorce: **hero z CTA** (blok Okładka), **trzy usługi**, **opinie (przykładowe)**, **stopka**. Wymóg „min. 2 wzorce” jest spełniony (4).
-- `theme.json` ma `defaultFontSizes: false` i `defaultSpacingSizes: false`. W wersji 3 pliku WordPress inaczej pomija rozmiary motywu o tych samych nazwach co domyślne (`small`–`x-large`, odstępy `20`–`60`), co dawało m.in. H2 większy od H1 na telefonie.
+- `theme.json` ma `defaultFontSizes: false` i `defaultSpacingSizes: false`. Bez tych ustawień WordPress (theme.json w wersji 3) pomija rozmiary motywu o tych samych nazwach co domyślne (`small`–`x-large`, odstępy `20`–`60`), co dawało m.in. H2 większy od H1 na telefonie.
 - `templates/page.html`: treść strony ma `align: full` z własnym układem, dzięki czemu sekcje szerokie we wzorcach mają 1180 px, a zwykły tekst 720 px.
 - **Wariant stylu** `ciemny` podmienia wartości kolorów o tych samych slugach; wszystkie pary mają kontrast ≥ 4,5:1.
 
