@@ -1,0 +1,12 @@
+# Archiwa (paczki do oddania i eksporty budujemy poza repozytorium)
+*.zip
+
+# Pliki systemowe i edytorów
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Zależności
+node_modules/
+vendor/

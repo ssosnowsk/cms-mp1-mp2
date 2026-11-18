@@ -78,12 +78,17 @@ function mf_register_block_styles() {
 		)
 	);
 
-	// Wygląd karty jest w style.css (selektor .is-style-mf-karta).
+	// inline_style ładuje CSS zarówno na stronie, jak i w edytorze blokowym,
+	// więc karta wygląda tak samo w obu miejscach. Wartości awaryjne kolorów
+	// są potrzebne w edytorze, gdzie zmienne z style.css nie są zdefiniowane.
 	register_block_style(
 		'core/group',
 		array(
-			'name'  => 'mf-karta',
-			'label' => __( 'Karta', 'mf-child' ),
+			'name'         => 'mf-karta',
+			'label'        => __( 'Karta', 'mf-child' ),
+			'inline_style' => '.wp-block-group.is-style-mf-karta {'
+				. ' padding: 1.5rem; border: 2px solid var(--mf-accent, #0b5d7a); border-radius: 12px;'
+				. ' background: var(--mf-surface, #eaf4f7); color: var(--mf-text, #1a1a1a); }',
 		)
 	);
 }

@@ -12,7 +12,7 @@ Dlaczego dwa? Strona MP1 jest zbudowana w edytorze witryny, więc używa motywu 
 
 ## 1. Instalacja
 
-Oba motywy to zwykłe katalogi. Do WordPressa: Wygląd → Motywy → Dodaj nowy → Wyślij motyw (plik `mojafirma.zip` lub `mf-child.zip`). Motyw `mf-child` wymaga zainstalowanego motywu rodzica Twenty Twenty-One (Wygląd → Motywy → Dodaj nowy → „Twenty Twenty-One”). Wymagania: WordPress 6.6+, PHP 7.4+.
+Oba motywy są w paczce jako katalogi oraz jako gotowe do instalacji pliki `mojafirma.zip` i `mf-child.zip` (folder `instalacja/`). Do WordPressa: Wygląd → Motywy → Dodaj nowy → Wyślij motyw. Motyw `mf-child` wymaga zainstalowanego motywu rodzica Twenty Twenty-One (Wygląd → Motywy → Dodaj nowy → „Twenty Twenty-One”). Wymagania: WordPress 6.6+, PHP 7.4+.
 
 ## 2. Struktura motywu blokowego `mojafirma/`
 
@@ -24,7 +24,7 @@ mojafirma/
 ├── parts/               header.html, footer.html
 ├── patterns/            hero-cta.php, uslugi.php, opinie.php, stopka-dane.php
 ├── styles/ciemny.json   wariant stylu: tryb ciemny
-└── assets/images/       hero.svg (ilustracja własna)
+└── assets/images/       hero.svg (ilustracja wygenerowana przez AI, CC0)
 ```
 
 ### Hierarchia szablonów (L4 G2)
@@ -43,9 +43,11 @@ Aby to sprawdzić w edytorze witryny: Wygląd → Edytor → Szablony, albo na s
 
 ### Części szablonu i wzorce
 
-- `parts/header.html`: nazwa witryny i blok Nawigacja z listą stron (menu zgodne z mapą strony).
+- `parts/header.html`: nazwa witryny i blok Nawigacja. Menu (wpis `wp_navigation` z jawnymi linkami i podmenu Oferta) tworzy skrypt `tools/seed.php` z MP1. Blok „Lista stron” został zastąpiony, bo generował listę `<ul>` zagnieżdżoną w `<ul>` (błąd dostępności z audytu axe).
 - `parts/footer.html` wstawia wzorzec `mojafirma/stopka-dane` (dane kontaktowe, link do polityki prywatności, informacja o AI). Dane są we wzorcu PHP, bo tylko PHP pozwala użyć `home_url()` i `esc_url()`, a linki „od korzenia” psują się w Playground.
-- Wzorce: **hero z CTA**, **trzy usługi**, **opinie (przykładowe)**, **stopka**. Wymóg „min. 2 wzorce” jest spełniony (4).
+- Wzorce: **hero z CTA** (blok Okładka), **trzy usługi**, **opinie (przykładowe)**, **stopka**. Wymóg „min. 2 wzorce” jest spełniony (4).
+- `theme.json` ma `defaultFontSizes: false` i `defaultSpacingSizes: false`. W wersji 3 pliku WordPress inaczej pomija rozmiary motywu o tych samych nazwach co domyślne (`small`–`x-large`, odstępy `20`–`60`), co dawało m.in. H2 większy od H1 na telefonie.
+- `templates/page.html`: treść strony ma `align: full` z własnym układem, dzięki czemu sekcje szerokie we wzorcach mają 1180 px, a zwykły tekst 720 px.
 - **Wariant stylu** `ciemny` podmienia wartości kolorów o tych samych slugach; wszystkie pary mają kontrast ≥ 4,5:1.
 
 ## 3. Struktura motywu potomnego `mf-child/`
@@ -67,7 +69,9 @@ mf-child/
   - `after_setup_theme` → `mf_child_setup()`: tłumaczenia.
   - filtr `excerpt_length` → `mf_excerpt_length()`: zajawki po 25 słów.
   - filtr `the_content` → `mf_add_note()`: notka „Masz pytania? Napisz do nas.” pod pojedynczym wpisem; filtr zawsze zwraca wartość, a warunek `is_single() && in_the_loop() && is_main_query()` ogranicza go do głównej treści wpisu.
-  - `init` → `mf_register_block_styles()`: style bloków „Z cieniem” (`core/button`) i „Karta” (`core/group`).
+  - `init` → `mf_register_block_styles()`: style bloków „Z cieniem” (`core/button`) i „Karta” (`core/group`). CSS obu stylów jest w `inline_style`, więc wyglądają tak samo w edytorze i na stronie (zrzuty `screenshots/01` i `02`).
+- `page-o-nas.php` wypisuje sekcję „Dane gabinetu” w klasie `entry-content`, żeby była wyrównana z treścią rodzica.
+- Kontrast w motywie potomnym liczony na tle rodzica `#d1e4dd`: linki 5,54:1, nagłówki 8,56:1, zajawka 5,74:1, tekst karty 15,57:1.
 
 ## 4. Dobre praktyki
 
@@ -77,31 +81,35 @@ mf-child/
 - **Zabezpieczenie plików PHP:** `if ( ! defined( 'ABSPATH' ) ) exit;` w `functions.php`.
 - **Brak edycji motywu rodzica:** cała zmiana w `mf-child/`.
 - **Dostępność:** kontrast ≥ 4,5:1 (`python3 tools/contrast.py`), widoczny fokus, cele min. 24 px, wbudowany skip link, `prefers-reduced-motion`, `forced-colors`. Szczegóły w raporcie MP1.
-- **Licencje:** kod GPL v2+, brak zewnętrznych fontów, ilustracja własna (CC0).
+- **Licencje:** kod GPL v2+, brak zewnętrznych fontów, ilustracja wygenerowana przez AI i oznaczona na stronie (CC0).
 
 ## 5. Git i wersjonowanie
 
-Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami w stylu `v0.1.0` (szkielet), `v1.0.0` (oddanie). Po zmianie podbij `Version` w `style.css`, zrób commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`.
+Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami: `v0.1.0` (szkielet), `v1.0.0` (oddanie), `v1.0.1` (dokumentacja), `v1.1.0` (poprawki po końcowej kontroli). Po zmianie podbijam `Version` w `style.css` obu motywów, robię commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`. Plik `.gitignore` wyklucza archiwa ZIP i pliki systemowe.
 
-Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0`, `v1.0.0` i `v1.0.1`).
+Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0`, `v1.0.0`, `v1.0.1` i `v1.1.0`).
+
+### Create Block Theme (L4 G3)
+
+W Playground z blueprintu MP1 zainstalowano wtyczkę Create Block Theme 2.10.2 i wyeksportowano nią motyw do ZIP (`mojafirma.zip`, 17 plików). Ten ZIP zainstalowano z powrotem przez Wygląd → Motywy → Dodaj nowy → Wyślij motyw („Motyw został zaktualizowany”) i strona działała dalej (strona główna, Oferta, Kontakt, 404). Porównanie plików przed i po: identycznych było 16 plików, a jedyna różnica to `theme.json`, który wtyczka zapisała po swojemu (posortowane klucze, nowszy adres `$schema`, pusta lista `customTemplates`); treść ustawień jest identyczna. Kroku „Zapisz zmiany w motywie” po zmianie nagłówka i koloru marki w edytorze witryny nie wykonywano, bo wszystkie zmiany wyglądu są wprowadzane w kodzie motywu i trafiają do repozytorium przez commit.
 
 ## 6. Co sprawdzono, a czego nie
 
-Sprawdzone:
+Sprawdzone 18.11.2026 (wersja 1.1.0):
 
-- Statycznie: `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu), parsowanie SVG, kontrasty par kolorów (`tools/contrast.py`), test hooków z atrapami funkcji WordPressa.
-- Na żywej witrynie: motyw `mojafirma` uruchomiony w WordPress Playground z blueprintu strony MP1 (motyw aktywny, strona główna z `front-page.html`, 8 stron, menu z podmenu, wzorce hero i usługi, formularz Contact Form 7). Lighthouse (Accessibility): 24/24 audytów zaliczonych, audyt axe-core i zrzuty ekranu są w paczce MP1.
-- Motyw potomny `mf-child` na żywo w Playground (blueprint `tools/mf-child-blueprint.json`: Twenty Twenty-One + `mf-child` + strony testowe): motyw potomny aktywny, strona `/o-nas/` używa szablonu `page-o-nas.php` (pionowa kreska marki i blok „Dane gabinetu”), pod wpisem `/wpis/` widać notkę „Masz pytania? Napisz do nas.” z filtra `the_content`, a na `/style-blokow/` działają style bloków „Z cieniem” (przycisk) i „Karta” (grupa z ramką i tłem). Sprawdzone obserwacją strony, bez zapisanych zrzutów ekranu.
+- **Statycznie:** `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu, blueprinty), kontrasty par kolorów (`tools/contrast.py`).
+- **`mojafirma` na żywej stronie MP1** (Playground z blueprintu): wszystkie szablony, części, wzorce i treści otwierają się w edytorze bez błędów walidacji bloków; hierarchia szablonów zgodna z tabelą wyżej (także 404); axe-core na 13 podstronach: 0 naruszeń z kodu motywu; test klawiaturą; 13 podstron × 6 szerokości ekranu bez przewijania w poziomie. Szczegóły w raporcie dostępności MP1.
+- **Wariant „Ciemny”** włączony na żywo: 0 naruszeń kontrastu (axe-core, 6 podstron), zrzut `screenshots/07-wariant-ciemny-mojafirma.jpg`.
+- **`mf-child` na żywo** (blueprint `tools/mf-child-blueprint.json`: Twenty Twenty-One + `mf-child` + strony testowe): w edytorze w panelu „Style” są style „Z cieniem” i „Karta” i działają w podglądzie (`screenshots/01`, `02`); na stronie `/style-blokow/` (`03`); strona `/o-nas/` używa `page-o-nas.php` (pionowa kreska marki, zajawka, „Dane gabinetu”, `04`), a `/kontakt/` zwykłego `page.php` rodzica (`05`); pod wpisem jest notka z filtra `the_content` (`06`).
+- **Create Block Theme:** eksport do ZIP i instalacja tego ZIP-a (sekcja 5).
 
-Nie sprawdzone na żywej instalacji:
-
-- wariant stylu „Ciemny” w panelu Style oraz wstawianie wzorców z Wstawiacza;
-- eksport przez wtyczkę Create Block Theme (zadanie opcjonalne).
+Nie sprawdzono: czytnik ekranu oraz uruchomienie `docker-compose.yml`.
 
 ## 7. Użycie AI
 
 - **Narzędzie:** Claude (Anthropic).
 - **Co wykonało AI:** na moje polecenia przygotowało: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
-- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża gabinet fizjoterapii), zleciłem pracę na podstawie kart L4 i L5, zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdziłem wyniki. Poza kodem AI zrobiło: uruchomienie motywu w Playground, zrzuty ekranu i audyt axe-core.
+- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża gabinet fizjoterapii), zleciłem pracę na podstawie kart L4 i L5, zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdziłem wyniki.
+- **Co zrobiło AI poza kodem:** uruchomienie motywów w Playground, zrzuty ekranu, audyty axe-core, test klawiaturą i szerokości ekranu, eksport przez Create Block Theme, a na tej podstawie poprawki opisane w sekcjach 2 i 3.
 - **Ręczne poprawki:** nie edytowałem plików samodzielnie. Zmiany i poprawki (menu, README, raport dostępności) wprowadzało AI na moje polecenia, a ja sprawdzałem efekt na stronie i w repozytorium.
 - Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.

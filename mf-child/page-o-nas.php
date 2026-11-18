@@ -23,7 +23,7 @@ while ( have_posts() ) :
 		<div class="entry-content">
 			<?php the_content(); ?>
 		</div>
-		<aside class="mf-o-nas-dane">
+		<aside class="mf-o-nas-dane entry-content">
 			<h2><?php esc_html_e( 'Dane gabinetu', 'mf-child' ); ?></h2>
 			<p>
 				<?php echo esc_html( get_bloginfo( 'name' ) ); ?><br>

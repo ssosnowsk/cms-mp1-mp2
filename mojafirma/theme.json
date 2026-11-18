@@ -18,6 +18,7 @@
 			]
 		},
 		"typography": {
+			"defaultFontSizes": false,
 			"fluid": false,
 			"fontFamilies": [
 				{
@@ -40,6 +41,7 @@
 			]
 		},
 		"spacing": {
+			"defaultSpacingSizes": false,
 			"units": [ "px", "rem", "%", "vw" ],
 			"spacingSizes": [
 				{ "slug": "20", "size": "0.5rem", "name": "XS" },
@@ -107,7 +109,7 @@
 				"spacing": { "padding": { "left": "var(--wp--preset--spacing--30)" } }
 			}
 		},
-		"css": ":where(a, button, input, select, textarea, summary):focus-visible{outline:3px solid var(--wp--preset--color--contrast);outline-offset:3px}html{scroll-padding-top:6rem}.wp-block-navigation-item__content,.wp-block-social-link a,.wp-element-button{min-height:24px;min-width:24px}.wp-block-navigation-item__content{padding-block:.5rem}.mf-header{padding-block:.5rem;position:sticky;top:0;z-index:100;background:var(--wp--preset--color--base);border-bottom:1px solid var(--wp--preset--color--surface)}.skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:1000;padding:.75rem 1rem;background:var(--wp--preset--color--base);color:var(--wp--preset--color--contrast)}@media (max-width:600px){.wp-block-columns{gap:1rem}.mf-hero{min-height:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}@media (forced-colors:active){.wp-block-button__link{border:2px solid ButtonText}}.mf-footer a{color:inherit}.mf-footer{padding-block:var(--wp--preset--spacing--50)}.mf-hero,.mf-uslugi,.mf-opinie{padding-block:var(--wp--preset--spacing--60)}.wpcf7 label{display:block;font-weight:600;margin-bottom:1rem}.wpcf7 input[type=text],.wpcf7 input[type=email],.wpcf7 textarea{display:block;width:100%;max-width:100%;margin-top:.35rem;padding:.65rem .75rem;border:2px solid var(--wp--preset--color--muted);border-radius:6px;font:inherit;background:var(--wp--preset--color--base);color:var(--wp--preset--color--contrast)}.wpcf7 input[type=submit]{min-height:44px;padding:.75rem 1.5rem;border:0;border-radius:6px;font:inherit;font-weight:700;cursor:pointer;background:var(--wp--preset--color--primary);color:var(--wp--preset--color--base)}.wpcf7 input[type=submit]:hover{background:var(--wp--preset--color--primary-dark)}.wpcf7-not-valid-tip{color:var(--wp--preset--color--accent);font-weight:600}"
+		"css": ":where(a, button, input, select, textarea, summary):focus-visible{outline:3px solid var(--wp--preset--color--contrast);outline-offset:3px}html{scroll-padding-top:6rem}.wp-block-navigation-item__content,.wp-block-social-link a,.wp-element-button{min-height:24px;min-width:24px}.wp-block-navigation-item__content{padding-block:.5rem}.mf-header{padding-block:.5rem;position:sticky;top:0;z-index:100;background:var(--wp--preset--color--base);border-bottom:1px solid var(--wp--preset--color--surface)}.skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:1000;padding:.75rem 1rem;background:var(--wp--preset--color--base);color:var(--wp--preset--color--contrast)}@media (max-width:600px){.wp-block-columns{gap:1rem}.mf-hero{min-height:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}@media (forced-colors:active){.wp-block-button__link{border:2px solid ButtonText}}.mf-footer a{color:inherit}.mf-footer :where(a,button):focus-visible{outline-color:currentColor}.mf-footer{padding-block:var(--wp--preset--spacing--50)}.mf-hero,.mf-uslugi,.mf-opinie{padding-block:var(--wp--preset--spacing--60)}.mf-hero .wp-block-cover__inner-container{color:var(--wp--preset--color--contrast)}.mf-hero :is(h1,h2):not(.has-text-color){color:var(--wp--preset--color--primary-dark)}.wpcf7 label{display:block;font-weight:600;margin-bottom:1rem}.wpcf7 input[type=text],.wpcf7 input[type=email],.wpcf7 textarea{display:block;box-sizing:border-box;width:100%;max-width:100%;margin-top:.35rem;padding:.65rem .75rem;border:2px solid var(--wp--preset--color--muted);border-radius:6px;font:inherit;background:var(--wp--preset--color--base);color:var(--wp--preset--color--contrast)}.wpcf7 input[type=submit]{min-height:44px;padding:.75rem 1.5rem;border:0;border-radius:6px;font:inherit;font-weight:700;cursor:pointer;background:var(--wp--preset--color--primary);color:var(--wp--preset--color--base)}.wpcf7 input[type=submit]:hover{background:var(--wp--preset--color--primary-dark)}.wpcf7-not-valid-tip{color:var(--wp--preset--color--accent);font-weight:600}"
 	},
 	"templateParts": [
 		{ "name": "header", "title": "Nagłówek", "area": "header" },
