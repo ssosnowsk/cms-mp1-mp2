@@ -1,0 +1,72 @@
+/*
+Theme Name: MF Child
+Theme URI: https://github.com/TODO-login/mojafirma
+Template: twentytwentyone
+Description: Motyw potomny (child theme) do MP2, laboratorium CMS, Collegium Da Vinci. Identyfikacja gabinetu fizjoterapii "Ruch i Zdrowie" nałożona na klasyczny motyw Twenty Twenty-One.
+Author: Szymon Sosnowski
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mf-child
+*/
+
+/* Nadpisujemy tylko to, co potrzebne. Motyw rodzica nie jest edytowany. */
+:root {
+	--mf-accent: #0b5d7a;      /* kolor marki z MP1; kontrast 7,34:1 na bieli */
+	--mf-accent-dark: #083f55; /* nagłówki; kontrast 11,34:1 na bieli */
+	--mf-surface: #eaf4f7;
+	--mf-text: #1a1a1a;
+}
+
+a { color: var(--mf-accent); }
+a:hover, a:focus { color: var(--mf-accent-dark); }
+
+h1, h2, h3, h4, h5, h6,
+.entry-title, .site-title {
+	font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-weight: 700;
+	color: var(--mf-accent-dark);
+}
+
+/* WCAG 2.4.7: widoczny fokus */
+:where(a, button, input, select, textarea, summary):focus-visible {
+	outline: 3px solid var(--mf-text);
+	outline-offset: 3px;
+}
+
+/* Szablon page-o-nas.php (hierarchia: widoczna różnica względem page.php rodzica) */
+.mf-o-nas .mf-lead {
+	font-size: 1.25rem;
+	color: #4a5560; /* 7,61:1 na bieli */
+}
+.mf-o-nas { border-left: 6px solid var(--mf-accent); padding-left: 1rem; }
+
+/* Notka pod wpisem (filtr the_content) */
+.mf-note {
+	margin-top: 2rem;
+	padding: 1rem 1.25rem;
+	background: var(--mf-surface);
+	border-left: 4px solid var(--mf-accent);
+	color: var(--mf-text);
+}
+
+/* Styl bloku: przycisk "Z cieniem" jest w functions.php (inline_style) */
+
+/* Styl bloku: grupa "Karta" */
+.wp-block-group.is-style-mf-karta {
+	padding: 1.5rem;
+	border: 2px solid var(--mf-accent);
+	border-radius: 12px;
+	background: var(--mf-surface);
+	color: var(--mf-text); /* 15,57:1 na tle karty */
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
