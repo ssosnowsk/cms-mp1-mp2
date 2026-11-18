@@ -91,10 +91,10 @@ Sprawdzone:
 
 - Statycznie: `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu), parsowanie SVG, kontrasty par kolorów (`tools/contrast.py`), test hooków z atrapami funkcji WordPressa.
 - Na żywej witrynie: motyw `mojafirma` uruchomiony w WordPress Playground z blueprintu strony MP1 (motyw aktywny, strona główna z `front-page.html`, 8 stron, menu z podmenu, wzorce hero i usługi, formularz Contact Form 7). Lighthouse (Accessibility): 24/24 audytów zaliczonych, audyt axe-core i zrzuty ekranu są w paczce MP1.
+- Motyw potomny `mf-child` na żywo w Playground (blueprint `tools/mf-child-blueprint.json`: Twenty Twenty-One + `mf-child` + strony testowe): motyw potomny aktywny, strona `/o-nas/` używa szablonu `page-o-nas.php` (pionowa kreska marki i blok „Dane gabinetu”), pod wpisem `/wpis/` widać notkę „Masz pytania? Napisz do nas.” z filtra `the_content`, a na `/style-blokow/` działają style bloków „Z cieniem” (przycisk) i „Karta” (grupa z ramką i tłem). Sprawdzone obserwacją strony, bez zapisanych zrzutów ekranu.
 
 Nie sprawdzone na żywej instalacji:
 
-- motyw potomny `mf-child`: szablon `page-o-nas.php`, notka pod wpisem, style bloków „Z cieniem” i „Karta”. Do tego przygotowałem `tools/mf-child-blueprint.json` (Twenty Twenty-One + `mf-child` + strony testowe). Wklej go w Playground (menu Blueprint) i otwórz strony `/o-nas/`, `/style-blokow/` i wpis `/wpis/`. Pierwsza próba uruchomienia zakończyła się błędem startu samego Playground (a nie motywu), więc wynik tego testu nie jest jeszcze opisany;
 - wariant stylu „Ciemny” w panelu Style oraz wstawianie wzorców z Wstawiacza;
 - eksport przez wtyczkę Create Block Theme (zadanie opcjonalne).
 
