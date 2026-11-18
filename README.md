@@ -87,7 +87,7 @@ Aby opublikować na GitHub: utwórz puste repozytorium (np. `mojafirma`) i wykon
 
 ## 6. Co musisz zrobić samodzielnie
 
-Nie mogłem uruchomić WordPressa w moim środowisku (brak dostępu do wordpress.org), więc kod sprawdziłem statycznie: `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu), parsowanie SVG i obliczenie kontrastów. Nie testowałem działania motywu na żywej instalacji. Po instalacji sprawdź:
+Motyw mojafirma został uruchomiony w WordPress Playground z blueprintu strony MP1 (motyw aktywny, 8 stron, menu z podmenu, hero i usługi, formularz Contact Form 7). Zrzuty ekranu (desktop i 375 px) i audyt axe-core są w paczce MP1. Motyw potomny mf-child i wariant stylu „Ciemny" nie były testowane na żywej instalacji. Po instalacji sprawdź:
 
 1. Czy motyw `mojafirma` aktywuje się bez błędów i czy strona główna używa `front-page.html`.
 2. Czy wzorce widać w Wstawiaczu (Wzorce) i czy wariant „Ciemny” jest w Stylach.
@@ -99,5 +99,5 @@ Nie mogłem uruchomić WordPressa w moim środowisku (brak dostępu do wordpress
 
 - **Narzędzie:** Claude (Anthropic).
 - **Co wykonało AI:** na moje polecenia przygotowało: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
-- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża z MP1) i zleciłem pracę na podstawie kart L4 i L5.
+- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża gabinet fizjoterapii), zleciłem pracę na podstawie kart L4 i L5, zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdziłem wyniki. Poza kodem AI zrobiło: uruchomienie motywu w Playground, zrzuty ekranu i audyt axe-core.
 - Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.
