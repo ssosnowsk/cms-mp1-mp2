@@ -1,0 +1,17 @@
+/*
+Theme Name: Ruch i Zdrowie (Moja Firma)
+Theme URI: https://github.com/TODO-login/mojafirma
+Author: Szymon Sosnowski
+Description: Motyw blokowy dla fikcyjnego gabinetu fizjoterapii "Ruch i Zdrowie" (MP2, laboratorium CMS, Collegium Da Vinci). Paleta i typografia w theme.json, wzorce bloków w PHP, wariant ciemny, dostępność WCAG 2.2 AA.
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mojafirma
+Tags: block-patterns, full-site-editing, accessibility-ready, one-column, custom-colors
+*/
+
+/* Wygląd (kolory, fonty, odstępy) trzymamy w theme.json.
+   Ten plik zawiera tylko nagłówek motywu - patrz README. */
