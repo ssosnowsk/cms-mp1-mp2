@@ -108,8 +108,8 @@ Nie sprawdzono: czytnik ekranu oraz uruchomienie `docker-compose.yml`.
 ## 7. Użycie AI
 
 - **Narzędzie:** Claude (Anthropic).
-- **Co wykonało AI:** na moje polecenia przygotowało: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
-- **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża gabinet fizjoterapii), zleciłem pracę na podstawie kart L4 i L5, zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdziłem wyniki.
-- **Co zrobiło AI poza kodem:** uruchomienie motywów w Playground, zrzuty ekranu, audyty axe-core, test klawiaturą i szerokości ekranu, eksport przez Create Block Theme, a na tej podstawie poprawki opisane w sekcjach 2 i 3.
-- **Ręczne poprawki:** nie edytowałem plików samodzielnie. Zmiany i poprawki (menu, README, raport dostępności) wprowadzało AI na moje polecenia, a ja sprawdzałem efekt na stronie i w repozytorium.
+- **Jak pracowaliśmy:** motywy powstały we współpracy z AI. Ja ustalałem założenia i kierunek, a AI na moje polecenia przygotowywało kod: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
+- **Moja część:** wybrałem rozwiązanie (motyw blokowy plus motyw potomny) i założenia, prowadziłem pracę według kart L4 i L5, sam uruchamiałem i testowałem motywy w Playground w swojej przeglądarce (strona z motywem `mojafirma`: klawiatura, widok na telefonie, podstrony, menu i formularz; motyw `mf-child`: strona O nas, notka pod wpisem, style „Z cieniem” i „Karta”), zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdzałem i zatwierdzałem kolejne poprawki.
+- **Testy automatyczne uruchomione przez AI na moje polecenie:** audyty axe-core, pomiar fokusu przy przechodzeniu klawiaturą, test szerokości ekranu, eksport przez Create Block Theme i zrzuty ekranu. Na podstawie tych testów i moich sprawdzeń wprowadziliśmy poprawki opisane w sekcjach 2 i 3.
+- **Edycja plików:** pliki zmieniało AI na moje polecenia, a ja sprawdzałem efekt na stronie i w repozytorium.
 - Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.
