@@ -20,9 +20,9 @@ Oba motywy są w paczce jako katalogi oraz jako gotowe do instalacji pliki `moja
 mojafirma/
 ├── style.css            nagłówek motywu (nazwa, wersja, licencja GPL, text domain), bez stylów wizualnych
 ├── theme.json           paleta, typografia, odstępy, style elementów i bloków, CSS dostępności
-├── templates/           index, home, front-page, page, single, archive, 404
+├── templates/           index, home, front-page, page, single, archive, search, 404
 ├── parts/               header.html, footer.html
-├── patterns/            hero-cta.php, uslugi.php, opinie.php, stopka-dane.php
+├── patterns/            hero-cta.php, uslugi.php, opinie.php, stopka-dane.php, strona-404.php
 ├── styles/ciemny.json   wariant stylu: tryb ciemny
 └── assets/images/       hero.svg (ilustracja wygenerowana przez AI, CC0)
 ```
@@ -36,6 +36,7 @@ mojafirma/
 | Strona (O nas, Oferta, Kontakt…) | `page.html` | page-{slug} → page → singular → index |
 | Pojedynczy wpis | `single.html` | single-post → single → singular → index |
 | Kategoria / archiwum | `archive.html` | category-{slug} → category → archive → index |
+| Wyniki wyszukiwania | `search.html` | search → index |
 | Błąd 404 | `404.html` | 404 → index |
 | Wszystko inne | `index.html` | szablon awaryjny |
 
@@ -45,7 +46,9 @@ Aby to sprawdzić w edytorze witryny: Wygląd → Edytor → Szablony, albo na s
 
 - `parts/header.html`: nazwa witryny i blok Nawigacja. Menu (wpis `wp_navigation` z jawnymi linkami i podmenu Oferta) tworzy skrypt `tools/seed.php` z MP1. Blok „Lista stron” został zastąpiony, bo generował listę `<ul>` zagnieżdżoną w `<ul>` (błąd dostępności z audytu axe).
 - `parts/footer.html` wstawia wzorzec `mojafirma/stopka-dane` (dane kontaktowe, link do polityki prywatności, informacja o AI). Dane są we wzorcu PHP, bo tylko PHP pozwala użyć `home_url()` i `esc_url()`, a linki „od korzenia” psują się w Playground.
-- Wzorce: **hero z CTA** (blok Okładka), **trzy usługi**, **opinie (przykładowe)**, **stopka**. Wymóg „min. 2 wzorce” jest spełniony (4).
+- Wzorce: **hero z CTA** (blok Okładka), **trzy usługi**, **opinie (przykładowe)**, **stopka** i **treść strony 404**. Wymóg „min. 2 wzorce” jest spełniony (5, z czego 3 widoczne we Wstawiaczu).
+- `404.html` wstawia wzorzec `mojafirma/strona-404`, bo przycisk „Wróć do strony głównej” potrzebuje adresu z `home_url()`; zwykły link `/` prowadził w złe miejsce, gdy WordPress działa w podkatalogu.
+- `search.html` ma tytuł wyników jako H1 i wyszukiwarkę; bez niego wyniki wyszukiwania (np. z formularza na stronie 404) korzystały z `index.html` bez nagłówka H1.
 - `theme.json` ma `defaultFontSizes: false` i `defaultSpacingSizes: false`. Bez tych ustawień WordPress (theme.json w wersji 3) pomija rozmiary motywu o tych samych nazwach co domyślne (`small`–`x-large`, odstępy `20`–`60`), co dawało m.in. H2 większy od H1 na telefonie.
 - `templates/page.html`: treść strony ma `align: full` z własnym układem, dzięki czemu sekcje szerokie we wzorcach mają 1180 px, a zwykły tekst 720 px.
 - **Wariant stylu** `ciemny` podmienia wartości kolorów o tych samych slugach; wszystkie pary mają kontrast ≥ 4,5:1.
@@ -85,9 +88,9 @@ mf-child/
 
 ## 5. Git i wersjonowanie
 
-Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami: `v0.1.0` (szkielet), `v1.0.0` (oddanie), `v1.0.1` (dokumentacja), `v1.1.0` (poprawki po końcowej kontroli). Po zmianie podbijam `Version` w `style.css` obu motywów, robię commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`. Plik `.gitignore` wyklucza archiwa ZIP i pliki systemowe.
+Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami: `v0.1.0` (szkielet), `v1.0.0` (oddanie), `v1.0.1` (dokumentacja), `v1.1.0` (poprawki po końcowej kontroli), `v1.1.1` (strona 404, wyniki wyszukiwania, komunikaty formularza). Po zmianie podbijam `Version` w `style.css` obu motywów, robię commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`. Plik `.gitignore` wyklucza archiwa ZIP i pliki systemowe.
 
-Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0`, `v1.0.0`, `v1.0.1` i `v1.1.0`).
+Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0`, `v1.0.0`, `v1.0.1`, `v1.1.0` i `v1.1.1`).
 
 ### Create Block Theme (L4 G3)
 
@@ -95,10 +98,10 @@ W Playground z blueprintu MP1 zainstalowano wtyczkę Create Block Theme 2.10.2 i
 
 ## 6. Co sprawdzono, a czego nie
 
-Sprawdzone 18.11.2026 (wersja 1.1.0):
+Sprawdzone 18.11.2026 (`mojafirma` 1.1.1, `mf-child` 1.1.0):
 
 - **Statycznie:** `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu, blueprinty), kontrasty par kolorów (`tools/contrast.py`).
-- **`mojafirma` na żywej stronie MP1** (Playground z blueprintu): wszystkie szablony, części, wzorce i treści otwierają się w edytorze bez błędów walidacji bloków; hierarchia szablonów zgodna z tabelą wyżej (także 404); axe-core na 13 podstronach: 0 naruszeń z kodu motywu; test klawiaturą; 13 podstron × 6 szerokości ekranu bez przewijania w poziomie. Szczegóły w raporcie dostępności MP1.
+- **`mojafirma` na żywej stronie MP1** (Playground z blueprintu): wszystkie szablony, części, wzorce i treści otwierają się w edytorze bez błędów walidacji bloków; hierarchia szablonów zgodna z tabelą wyżej (także 404 i wyniki wyszukiwania, przycisk na stronie 404 prowadzi na stronę główną); axe-core na 13 podstronach: 0 naruszeń z kodu motywu; test klawiaturą; 13 podstron × 6 szerokości ekranu bez przewijania w poziomie. Szczegóły w raporcie dostępności MP1.
 - **Wariant „Ciemny”** włączony na żywo: 0 naruszeń kontrastu (axe-core, 6 podstron), zrzut `screenshots/07-wariant-ciemny-mojafirma.jpg`.
 - **`mf-child` na żywo** (blueprint `tools/mf-child-blueprint.json`: Twenty Twenty-One + `mf-child` + strony testowe): w edytorze w panelu „Style” są style „Z cieniem” i „Karta” i działają w podglądzie (`screenshots/01`, `02`); na stronie `/style-blokow/` (`03`); strona `/o-nas/` używa `page-o-nas.php` (pionowa kreska marki, zajawka, „Dane gabinetu”, `04`), a `/kontakt/` zwykłego `page.php` rodzica (`05`); pod wpisem jest notka z filtra `the_content` (`06`).
 - **Create Block Theme:** eksport do ZIP i instalacja tego ZIP-a (sekcja 5).
