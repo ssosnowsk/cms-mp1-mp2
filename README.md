@@ -83,7 +83,7 @@ mf-child/
 
 Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami w stylu `v0.1.0` (szkielet), `v1.0.0` (oddanie). Po zmianie podbij `Version` w `style.css`, zrób commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`.
 
-Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0` i `v1.0.0`).
+Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0`, `v1.0.0` i `v1.0.1`).
 
 ## 6. Co sprawdzono, a czego nie
 
