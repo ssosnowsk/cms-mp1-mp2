@@ -94,7 +94,7 @@ Sprawdzone:
 
 Nie sprawdzone na żywej instalacji:
 
-- motyw potomny `mf-child` (wymaga osobnej instalacji z motywem Twenty Twenty-One): szablon `page-o-nas.php`, notka pod wpisem, style bloków „Z cieniem” i „Karta”;
+- motyw potomny `mf-child`: szablon `page-o-nas.php`, notka pod wpisem, style bloków „Z cieniem” i „Karta”. Do tego przygotowałem `tools/mf-child-blueprint.json` (Twenty Twenty-One + `mf-child` + strony testowe). Wklej go w Playground (menu Blueprint) i otwórz strony `/o-nas/`, `/style-blokow/` i wpis `/wpis/`. Pierwsza próba uruchomienia zakończyła się błędem startu samego Playground (a nie motywu), więc wynik tego testu nie jest jeszcze opisany;
 - wariant stylu „Ciemny” w panelu Style oraz wstawianie wzorców z Wstawiacza;
 - eksport przez wtyczkę Create Block Theme (zadanie opcjonalne).
 
