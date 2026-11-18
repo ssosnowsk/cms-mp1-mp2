@@ -103,4 +103,5 @@ Nie sprawdzone na żywej instalacji:
 - **Narzędzie:** Claude (Anthropic).
 - **Co wykonało AI:** na moje polecenia przygotowało: szkielet motywu blokowego, `theme.json`, szablony, wzorce, wariant stylu, motyw potomny z hookami i stylami bloków, ilustrację SVG i README.
 - **Co zrobiłem ja:** wybrałem założenia (motyw blokowy plus motyw potomny, branża gabinet fizjoterapii), zleciłem pracę na podstawie kart L4 i L5, zainstalowałem Git, zalogowałem się do GitHuba, wypchnąłem repozytorium z historią commitów i tagami oraz sprawdziłem wyniki. Poza kodem AI zrobiło: uruchomienie motywu w Playground, zrzuty ekranu i audyt axe-core.
+- **Ręczne poprawki:** nie edytowałem plików samodzielnie. Zmiany i poprawki (menu, README, raport dostępności) wprowadzało AI na moje polecenia, a ja sprawdzałem efekt na stronie i w repozytorium.
 - Treści i grafika z AI są oznaczone na stronie. Rozumiem rozwiązania zastosowane w motywach i potrafię je wyjaśnić oraz zmodyfikować.
