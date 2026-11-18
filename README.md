@@ -83,17 +83,20 @@ mf-child/
 
 Repozytorium ma historię commitów z opisowymi komunikatami i tagi wersji (`git log --oneline --decorate`). Wersje oznaczam tagami w stylu `v0.1.0` (szkielet), `v1.0.0` (oddanie). Po zmianie podbij `Version` w `style.css`, zrób commit i `git tag -a vX.Y.Z -m "opis"`, potem `git push --tags`.
 
-Aby opublikować na GitHub: utwórz puste repozytorium (np. `mojafirma`) i wykonaj `git remote add origin <URL>`, `git push -u origin main --tags`.
+Repozytorium: https://github.com/ssosnowsk/cms-mp1-mp2 (gałąź `main`, tagi `v0.1.0` i `v1.0.0`).
 
-## 6. Co musisz zrobić samodzielnie
+## 6. Co sprawdzono, a czego nie
 
-Motyw mojafirma został uruchomiony w WordPress Playground z blueprintu strony MP1 (motyw aktywny, 8 stron, menu z podmenu, hero i usługi, formularz Contact Form 7). Zrzuty ekranu (desktop i 375 px) i audyt axe-core są w paczce MP1. Motyw potomny mf-child i wariant stylu „Ciemny" nie były testowane na żywej instalacji. Po instalacji sprawdź:
+Sprawdzone:
 
-1. Czy motyw `mojafirma` aktywuje się bez błędów i czy strona główna używa `front-page.html`.
-2. Czy wzorce widać w Wstawiaczu (Wzorce) i czy wariant „Ciemny” jest w Stylach.
-3. W `mf-child`: czy strona „O nas” używa `page-o-nas.php`, czy notka pojawia się pod wpisem i czy style „Z cieniem” i „Karta” są w panelu Style bloku.
-4. Zrób **3–5 zrzutów ekranu** do oddania: strona główna, szablon/strona „O nas”, styl bloku w edytorze, widok mobilny. Zapisz w katalogu `screenshots/`.
-5. Opcjonalnie eksport ZIP przez wtyczkę Create Block Theme (zadanie L4 G3) i test w Playground.
+- Statycznie: `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu), parsowanie SVG, kontrasty par kolorów (`tools/contrast.py`), test hooków z atrapami funkcji WordPressa.
+- Na żywej witrynie: motyw `mojafirma` uruchomiony w WordPress Playground z blueprintu strony MP1 (motyw aktywny, strona główna z `front-page.html`, 8 stron, menu z podmenu, wzorce hero i usługi, formularz Contact Form 7). Lighthouse (Accessibility): 24/24 audytów zaliczonych, audyt axe-core i zrzuty ekranu są w paczce MP1.
+
+Nie sprawdzone na żywej instalacji:
+
+- motyw potomny `mf-child` (wymaga osobnej instalacji z motywem Twenty Twenty-One): szablon `page-o-nas.php`, notka pod wpisem, style bloków „Z cieniem” i „Karta”;
+- wariant stylu „Ciemny” w panelu Style oraz wstawianie wzorców z Wstawiacza;
+- eksport przez wtyczkę Create Block Theme (zadanie opcjonalne).
 
 ## 7. Użycie AI
 
