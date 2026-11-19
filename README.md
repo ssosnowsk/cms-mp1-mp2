@@ -106,7 +106,9 @@ Sprawdzone 18.11.2026 (`mojafirma` 1.1.1, `mf-child` 1.1.0):
 - **`mf-child` na żywo** (blueprint `tools/mf-child-blueprint.json`: Twenty Twenty-One + `mf-child` + strony testowe): w edytorze w panelu „Style” są style „Z cieniem” i „Karta” i działają w podglądzie (`screenshots/01`, `02`); na stronie `/style-blokow/` (`03`); strona `/o-nas/` używa `page-o-nas.php` (pionowa kreska marki, zajawka, „Dane gabinetu”, `04`), a `/kontakt/` zwykłego `page.php` rodzica (`05`); pod wpisem jest notka z filtra `the_content` (`06`).
 - **Create Block Theme:** eksport do ZIP i instalacja tego ZIP-a (sekcja 5).
 
-Nie sprawdzono: czytnik ekranu oraz uruchomienie `docker-compose.yml`.
+- **`docker-compose.yml` w GitHub Codespaces:** oba kontenery (MariaDB 11, WordPress na PHP 8.3) startują, WordPress instaluje się po polsku pod portem 8080, a zamontowane katalogi `mojafirma` i `mf-child` są widoczne w `wp-content/themes`; `mojafirma` 1.1.1 działa jako aktywny motyw. Do pliku dodano `WORDPRESS_CONFIG_EXTRA`, bo za proxy Codespaces WordPress przekierowywał na `localhost:8080`. Zrzuty są w paczce MP1 (`docker-codespaces/`).
+
+Nie sprawdzono: czytnik ekranu.
 
 ## 7. Użycie AI
 

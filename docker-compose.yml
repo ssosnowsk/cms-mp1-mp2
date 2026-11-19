@@ -25,6 +25,13 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wp_lab
       WORDPRESS_DB_PASSWORD: lab-haslo-2026
+      # W GitHub Codespaces strona działa za proxy (adres *.app.github.dev).
+      # Bez tego WordPress przekierowuje na localhost:8080 i strona się nie otwiera.
+      WORDPRESS_CONFIG_EXTRA: |
+        if ( ! empty( $$_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
+          $$_SERVER['HTTP_HOST'] = $$_SERVER['HTTP_X_FORWARDED_HOST'];
+          $$_SERVER['HTTPS'] = 'on';
+        }
     volumes:
       - wp_data:/var/www/html
       # motyw z katalogu projektu trafia do wp-content/themes
