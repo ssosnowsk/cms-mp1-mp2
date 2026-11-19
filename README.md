@@ -102,7 +102,7 @@ Wtyczka Create Block Theme 2.10.2 w Playground z blueprintu MP1:
 
 ## 6. Co sprawdzono, a czego nie
 
-Sprawdzone 18.11.2026, Docker 19.11.2026 (`mojafirma` 1.1.1, `mf-child` 1.1.0):
+Sprawdzone 18.11.2026, a Docker i Create Block Theme 19.11.2026 (`mojafirma` 1.1.1, `mf-child` 1.1.0):
 
 - **Statycznie:** `php -l` dla wszystkich plików PHP, poprawność JSON-a (`theme.json`, wariant stylu, blueprinty), kontrasty par kolorów (`tools/contrast.py`).
 - **`mojafirma` na żywej stronie MP1** (Playground z blueprintu): wszystkie szablony, części, wzorce i treści otwierają się w edytorze bez błędów walidacji bloków; hierarchia szablonów zgodna z tabelą wyżej (także 404 i wyniki wyszukiwania, przycisk na stronie 404 prowadzi na stronę główną); axe-core na 13 adresach strony (8 stron, 3 wpisy, 2 kategorie): 0 naruszeń z kodu motywu; test klawiaturą; 13 adresów strony × 6 szerokości ekranu bez przewijania w poziomie. Szczegóły w raporcie dostępności MP1.
